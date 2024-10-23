@@ -19,10 +19,27 @@
         <input type="number" id="age" placeholder="Enter your age" required>
 
         <label for="weight">Weight (kg):</label>
-        <input type="number" id="weight" placeholder="Enter your weight in kg" required>
+        <input type="number" step="0.1" id="weight" placeholder="Enter your weight in kg" required>
 
-        <label for="height">Height (cm):</label>
-        <input type="number" id="height" placeholder="Enter your height in cm" required>
+        <label for="height-option">Height Unit:</label>
+        <select id="height-option" required>
+            <option value="cm">Centimeters</option>
+            <option value="feet-inches">Feet & Inches</option>
+        </select>
+
+        <!-- Height in cm -->
+        <div id="height-cm-input">
+            <label for="height-cm">Height (cm):</label>
+            <input type="number" step="0.1" id="height-cm" placeholder="Enter your height in cm">
+        </div>
+
+        <!-- Height in feet and inches -->
+        <div id="height-feet-inches-input" style="display:none;">
+            <label for="height-feet">Height (feet):</label>
+            <input type="number" id="height-feet" placeholder="Feet" min="1" max="8">
+            <label for="height-inches">Height (inches):</label>
+            <input type="number" id="height-inches" placeholder="Inches" min="0" max="11">
+        </div>
 
         <label for="gender">Gender:</label>
         <select id="gender" required>
@@ -45,17 +62,43 @@
             <option value="non-vegetarian">Non-Vegetarian</option>
         </select>
 
+        <label for="health-condition">Do you have any health conditions?</label>
+        <select id="health-condition" required>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+
         <button type="submit">Calculate</button>
     </form>
 
     <!-- Result -->
     <p id="result"></p>
 
+    <!-- Diet Recommendation Button -->
+    <button id="get-diet" style="display:none;">Get Diet Recommendations</button>
+
+    <!-- Country Selection -->
+    <div id="country-section" style="display:none;">
+        <label for="country">Which country are you from?</label>
+        <select id="country">
+            <option value="india">India</option>
+            <option value="europe">Europe</option>
+            <option value="usa">United States</option>
+            <option value="canada">Canada</option>
+            <option value="australia">Australia</option>
+        </select>
+        <button id="get-country-diet">Show Diet</button>
+    </div>
+
+    <!-- Display Diet Recommendations -->
+    <div id="diet-result" style="display:none;"></div>
+
     <!-- Footer -->
     <footer>
         <p>Powered by Beyond Gain © 2024</p>
     </footer>
 
+    <!-- Link to external JavaScript file -->
     <script src="calculator.js"></script>
 </body>
 </html>
